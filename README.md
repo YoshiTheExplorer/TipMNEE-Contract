@@ -1,13 +1,11 @@
-# Sample Hardhat Project
+# TipMNEE Contracts
+Smart contracts for TipMNEE, a YouTube tipping escrow system built on Ethereum.
+The core contract allows anyone to tip a YouTube creator using an ERC-20 token.
+If the creator has not registered a payout wallet, tips are escrowed on-chain until the creator verifies ownership and claims them.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
-```
+Contracts
+TipEscrow.sol
+Accepts ERC-20 tips keyed by channelIdHash
+Holds tips in escrow until claimed
+Supports EIP-712 signature–based claiming
+Allows anyone to trigger withdrawals once a channel is claimed
